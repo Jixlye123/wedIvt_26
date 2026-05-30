@@ -2,7 +2,6 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { FloralFrame } from "./FloralFrame";
 import { WeddingLogo } from "./WeddingLogo";
 import { GoldDivider } from "./GoldDivider";
 import { AnimatedText } from "./AnimatedText";
@@ -31,10 +30,6 @@ export const PageOne: React.FC = () => {
     <div className="swipe-page" style={{ position: "relative" }}>
       {/* Couple background image */}
       <div className="couple-bg" />
-
-      {/* Watercolor flower decorations */}
-      <FloralFrame position="top-left" />
-      <FloralFrame position="bottom-right" />
 
       {/* Decorative corner borders */}
       <div className="corner-decorations" />
@@ -118,13 +113,25 @@ export const PageOne: React.FC = () => {
         <AnimatedText
           text="Nipuni Dilthara"
           as="h2"
-          className="font-script text-5xl leading-none mb-2"
-          style={{ color: "var(--gold-primary)" }}
+          className="font-script leading-none mb-2"
+          style={{
+            color: "var(--gold-primary)",
+            fontFamily: "var(--font-script)",
+            fontSize: "3.2rem",
+            whiteSpace: "nowrap",
+            display: "inline-block",
+            letterSpacing: "0.02em"
+          }}
           delay={0.5}
           staggerDelay={0.03}
         />
         <motion.p
-          className="font-script text-4xl my-3 rose-gold-gradient"
+          className="font-script my-3 rose-gold-gradient"
+          style={{
+            fontFamily: "var(--font-script)",
+            fontSize: "2.4rem",
+            lineHeight: "1"
+          }}
           initial={{ opacity: 0, scale: 0.5 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.8 }}
@@ -135,8 +142,15 @@ export const PageOne: React.FC = () => {
         <AnimatedText
           text="Samith Lakshan"
           as="h2"
-          className="font-script text-5xl leading-none mt-2"
-          style={{ color: "var(--gold-primary)" }}
+          className="font-script leading-none mt-2"
+          style={{
+            color: "var(--gold-primary)",
+            fontFamily: "var(--font-script)",
+            fontSize: "3.2rem",
+            whiteSpace: "nowrap",
+            display: "inline-block",
+            letterSpacing: "0.02em"
+          }}
           delay={1.0}
           staggerDelay={0.03}
         />

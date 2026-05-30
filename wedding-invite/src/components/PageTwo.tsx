@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { MapPin, Calendar, Clock } from "lucide-react";
-import { FloralFrame } from "./FloralFrame";
 import { GoldDivider } from "./GoldDivider";
 
 const slideUp = {
@@ -69,9 +68,6 @@ export const PageTwo: React.FC = () => {
 
   return (
     <div className="swipe-page" style={{ position: "relative" }}>
-      {/* Watercolor flower decorations */}
-      <FloralFrame position="top-left" />
-      <FloralFrame position="bottom-right" />
       <div className="corner-decorations" />
 
       {/* Page Title */}

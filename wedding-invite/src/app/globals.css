@@ -20,11 +20,6 @@
   --text-warm: #5a4a3f;
   --border-gold: rgba(201, 169, 110, 0.3);
 
-  /* Fonts */
-  --font-cinzel: var(--font-cinzel), "Playfair Display", serif;
-  --font-script: var(--font-script), "Great Vibes", cursive;
-  --font-montserrat: var(--font-montserrat), "Cormorant Garamond", serif;
-  --font-dancing: var(--font-dancing), "Dancing Script", cursive;
 }
 
 body {
@@ -210,7 +205,6 @@ h1, h2, h3 {
   pointer-events: none;
   z-index: 1;
   object-fit: contain;
-  transform: scaleX(-1);
 }
 
 .floral-corner-br {
@@ -223,7 +217,6 @@ h1, h2, h3 {
   pointer-events: none;
   z-index: 1;
   object-fit: contain;
-  transform: scaleY(-1);
 }
 
 /* ──────────────── Gold Ornate Divider ──────────────── */

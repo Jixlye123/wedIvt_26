@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { PageOne } from "./PageOne";
 import { PageTwo } from "./PageTwo";
 import { PageThree } from "./PageThree";
+import { FloralFrame } from "./FloralFrame";
 
 export const ScrollContainer: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -30,9 +31,21 @@ export const ScrollContainer: React.FC = () => {
         className="scroll-container"
         onScroll={handleScroll}
       >
-        <div className="scroll-page"><PageOne /></div>
-        <div className="scroll-page"><PageTwo /></div>
-        <div className="scroll-page"><PageThree /></div>
+        <div className="scroll-page">
+          <FloralFrame position="top-left" />
+          <FloralFrame position="bottom-right" />
+          <PageOne />
+        </div>
+        <div className="scroll-page">
+          <FloralFrame position="top-left" />
+          <FloralFrame position="bottom-right" />
+          <PageTwo />
+        </div>
+        <div className="scroll-page">
+          <FloralFrame position="top-left" />
+          <FloralFrame position="bottom-right" />
+          <PageThree />
+        </div>
       </div>
 
       {showScrollIndicator && (

@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Phone, Heart } from "lucide-react";
-import { FloralFrame } from "./FloralFrame";
 import { GoldDivider } from "./GoldDivider";
 
 interface AgendaItem {
@@ -83,9 +82,6 @@ export const PageThree: React.FC = () => {
       {/* Floating hearts background */}
       <FloatingHearts />
 
-      {/* Watercolor flower decorations */}
-      <FloralFrame position="top-left" />
-      <FloralFrame position="bottom-right" />
       <div className="corner-decorations" />
 
       {/* Page Title */}

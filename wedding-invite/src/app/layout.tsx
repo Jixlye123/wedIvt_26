@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Great_Vibes, Cormorant_Garamond, Dancing_Script } from "next/font/google";
+import { Playfair_Display, Alex_Brush, Cormorant_Garamond, Dancing_Script } from "next/font/google";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -7,7 +7,7 @@ const playfair = Playfair_Display({
   subsets: ["latin"],
 });
 
-const greatVibes = Great_Vibes({
+const alexBrush = Alex_Brush({
   weight: "400",
   variable: "--font-script",
   subsets: ["latin"],
@@ -37,7 +37,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${greatVibes.variable} ${cormorant.variable} ${dancingScript.variable} h-full antialiased`}
+      className={`${playfair.variable} ${alexBrush.variable} ${cormorant.variable} ${dancingScript.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col overflow-hidden bg-[#0d0d0d] text-[#eaeaea] select-none touch-none">
         {children}

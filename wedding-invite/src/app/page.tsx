@@ -13,8 +13,7 @@ export default function Home() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    // Soft, romantic piano instrumental music (royalty-free loop)
-    const audioUrl = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3";
+    const audioUrl = "/Fall-In-Love-chosic.com_.mp3";
     const audio = new Audio(audioUrl);
     audio.loop = true;
     audio.volume = 0.4;
