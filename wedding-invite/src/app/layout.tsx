@@ -28,7 +28,7 @@ const dancingScript = Dancing_Script({
   display: "swap",
 });
 
-const BASE_URL = "https://nipuni-samith.vercel.app"; // update to your actual domain
+const BASE_URL = "https://wed-ivt-26-wvmr.vercel.app/"; // update to your actual domain
 
 export const metadata: Metadata = {
   title: "Nipuni & Samith's Wedding Invitation",
