@@ -6,10 +6,13 @@ import { MusicPlayer } from "@/components/MusicPlayer";
 import { AmbientEffects } from "@/components/AmbientEffects";
 import { DissolveOverlay } from "@/components/DissolveOverlay";
 import { SparkleEffect } from "@/components/SparkleEffect";
+import { CoupleIntro } from "@/components/CoupleIntro";
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isOverlayMounted, setIsOverlayMounted] = useState(true);
+  const [showIntro, setShowIntro] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
@@ -35,6 +38,13 @@ export default function Home() {
         .then(() => setIsPlaying(true))
         .catch((err) => console.log("Audio failed to play:", err));
     }
+    // Unmount overlay from React DOM after fade-out animation completes (~1.5s)
+    // This matches DissolveOverlay's internal shouldRender timer exactly
+    setTimeout(() => {
+      setIsOverlayMounted(false);
+    }, 1500);
+    // Show cinematic intro after envelope has fully slid away
+    setTimeout(() => setShowIntro(true), 1200);
   };
 
   const toggleMusic = (e: React.MouseEvent) => {
@@ -59,7 +69,7 @@ export default function Home() {
       {/* Main simulated mobile layout */}
       <div className="mobile-viewport relative">
         {/* Dissolve intro screen overlay with Water Drop tap animations */}
-        <DissolveOverlay onOpen={handleOpenInvitation} />
+        {isOverlayMounted && <DissolveOverlay onOpen={handleOpenInvitation} />}
 
         {/* Base decorative gradient layer */}
         <div className="bg-overlay" />
@@ -73,8 +83,11 @@ export default function Home() {
         {/* Floating volume trigger */}
         <MusicPlayer isPlaying={isPlaying} togglePlay={toggleMusic} />
 
+        {/* Cinematic couple intro — appears after envelope slides away */}
+        {showIntro && <CoupleIntro onDismiss={() => setShowIntro(false)} />}
+
         {/* Water drop reveal container wrapper around page timeline scrolls */}
-        <div className={`w-full h-full waterdrop-reveal ${isOpen ? "revealed" : ""}`}>
+        <div className={`w-full h-full envelope-reveal ${isOpen ? "revealed" : ""}`}>
           <ScrollContainer />
         </div>
       </div>

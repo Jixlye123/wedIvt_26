@@ -43,7 +43,7 @@ export const AmbientEffects: React.FC = () => {
   const [petals, setPetals] = useState<PetalConfig[]>([]);
 
   useEffect(() => {
-    const newPetals: PetalConfig[] = Array.from({ length: 22 }).map((_, idx) => {
+    const newPetals: PetalConfig[] = Array.from({ length: 10 }).map((_, idx) => {
       const colorScheme = PETAL_COLORS[Math.floor(Math.random() * PETAL_COLORS.length)];
       return {
         id: idx,

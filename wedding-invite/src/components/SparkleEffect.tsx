@@ -24,7 +24,7 @@ export const SparkleEffect: React.FC = () => {
   const [sparkles, setSparkles] = useState<Sparkle[]>([]);
 
   useEffect(() => {
-    const newSparkles: Sparkle[] = Array.from({ length: 25 }).map((_, idx) => ({
+    const newSparkles: Sparkle[] = Array.from({ length: 12 }).map((_, idx) => ({
       id: idx,
       left: `${Math.random() * 100}%`,
       top: `${Math.random() * 100}%`,

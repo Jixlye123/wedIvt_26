@@ -1,89 +1,43 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { WeddingLogo } from "./WeddingLogo";
 
 interface DissolveOverlayProps {
   onOpen: () => void;
 }
 
-// Small sparkle burst on tap
-const SparkBurst: React.FC = () => {
-  const particles = Array.from({ length: 12 }).map((_, i) => {
-    const angle = (i / 12) * 360;
-    const distance = 50 + Math.random() * 40;
-    const x = Math.cos((angle * Math.PI) / 180) * distance;
-    const y = Math.sin((angle * Math.PI) / 180) * distance;
-    return { id: i, x, y, size: 2 + Math.random() * 3 };
-  });
-
-  return (
-    <div className="absolute inset-0 pointer-events-none z-[95] flex items-center justify-center">
-      {particles.map((p) => (
-        <motion.div
-          key={p.id}
-          className="absolute rounded-full"
-          style={{
-            width: p.size,
-            height: p.size,
-            background: ["#e8d5a3", "#c9a96e", "#d4a0a0", "#b76e79"][p.id % 4],
-          }}
-          initial={{ x: 0, y: 0, opacity: 1, scale: 1 }}
-          animate={{ x: p.x, y: p.y, opacity: 0, scale: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        />
-      ))}
-    </div>
-  );
-};
-
 export const DissolveOverlay: React.FC<DissolveOverlayProps> = ({ onOpen }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [showRipples, setShowRipples] = useState(false);
-  const [showSparks, setShowSparks] = useState(false);
-  const [shouldRender, setShouldRender] = useState(true);
+  const [phase, setPhase] = useState<"idle" | "opening">("idle");
+  const [mounted, setMounted] = useState(true);
 
   const handleOpen = () => {
-    setShowRipples(true);
-    setShowSparks(true);
-    onOpen(); // Trigger background music play immediately on user gesture
-
-    // Wait a brief moment for water ripples to expand before dissolving overlay
-    setTimeout(() => {
-      setIsOpen(true);
-    }, 400);
+    if (phase !== "idle") return;
+    setPhase("opening");
+    onOpen();
+    setTimeout(() => setMounted(false), 1500);
   };
 
-  useEffect(() => {
-    if (isOpen) {
-      // Hide the overlay from DOM after the transition (1.4 seconds) completes
-      const timer = setTimeout(() => {
-        setShouldRender(false);
-      }, 1500);
-      return () => clearTimeout(timer);
-    }
-  }, [isOpen]);
+  if (!mounted) return null;
 
-  if (!shouldRender) return null;
+  const opening = phase === "opening";
 
   return (
-    <div className={`dissolve-wrapper ${isOpen ? "fade-out" : ""}`}>
-      {/* Tap Ripples (Water Drop Effect) */}
-      {showRipples && (
-        <>
-          <div className="ripple-circle" style={{ animationDelay: "0s" }} />
-          <div className="ripple-circle" style={{ animationDelay: "0.15s" }} />
-          <div className="ripple-circle" style={{ animationDelay: "0.3s" }} />
-        </>
-      )}
+    <div className={`envelope-outer${opening ? " slide-out" : ""}`}>
+      {/* Floral background */}
+      <div className="dissolve-bg-pattern" />
 
-      {/* Sparkle burst on tap */}
-      <AnimatePresence>
-        {showSparks && <SparkBurst />}
-      </AnimatePresence>
+      {/* Top triangular flap — compresses upward on open */}
+      <div className={`envelope-flap${opening ? " flap-open" : ""}`} />
 
-      {/* Invitation Welcome Text */}
+      {/* Envelope fold-line decorations (bottom V + side diagonals) */}
+      <div className="envelope-folds" />
+
+      {/* Dashed inner border */}
+      <div className="dissolve-border" />
+
+      {/* Welcome text */}
       <motion.div
         className="dissolve-text z-10 px-4"
         initial={{ opacity: 0, y: 10 }}
@@ -100,7 +54,7 @@ export const DissolveOverlay: React.FC<DissolveOverlayProps> = ({ onOpen }) => {
           Wedding Invitation
         </motion.p>
         <motion.p
-          className="text-[14px] tracking-[0.2em] font-semibold uppercase gold-gradient"
+          className="gold-gradient"
           style={{ fontFamily: "var(--font-script)", fontSize: "1.5rem", textTransform: "none" }}
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -110,7 +64,7 @@ export const DissolveOverlay: React.FC<DissolveOverlayProps> = ({ onOpen }) => {
         </motion.p>
       </motion.div>
 
-      {/* Center Gold Wax Seal / Open Button */}
+      {/* Wax seal button */}
       <motion.button
         className="dissolve-seal z-10"
         onClick={handleOpen}
@@ -131,7 +85,6 @@ export const DissolveOverlay: React.FC<DissolveOverlayProps> = ({ onOpen }) => {
         </div>
       </motion.button>
 
-      {/* Subtle instruction text */}
       <motion.p
         className="text-[7px] tracking-[0.3em] uppercase mt-6 z-10"
         style={{ color: "var(--text-muted)", opacity: 0.5 }}

@@ -106,14 +106,17 @@ body {
   z-index: 0;
 }
 
-/* Water Drop Reveal Effect */
-.waterdrop-reveal {
-  clip-path: circle(0% at 50% 50%);
-  transition: clip-path 1.4s cubic-bezier(0.1, 0.8, 0.3, 1);
+/* ──────────────── Envelope Content Reveal ──────────────── */
+.envelope-reveal {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.waterdrop-reveal.revealed {
-  clip-path: circle(150% at 50% 50%);
+.envelope-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.7s;
 }
 
 /* ──────────────── Typography ──────────────── */
@@ -254,8 +257,9 @@ h1, h2, h3 {
 }
 
 .countdown-box {
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(201, 169, 110, 0.2);
   border-radius: 12px;
   padding: 0.625rem 0.75rem;
@@ -291,9 +295,9 @@ h1, h2, h3 {
   width: 100%;
   padding: 1.25rem;
   margin-top: 1.25rem;
-  background: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   border: 1px solid rgba(201, 169, 110, 0.15);
   border-radius: 16px;
   text-align: center;
@@ -377,6 +381,8 @@ h1, h2, h3 {
   z-index: 1;
   animation: fall linear infinite;
   opacity: 0.5;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 
 @keyframes fall {
@@ -426,6 +432,8 @@ h1, h2, h3 {
   pointer-events: none;
   z-index: 2;
   animation: sparkleFloat linear infinite;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 
 @keyframes sparkleFloat {
@@ -456,8 +464,9 @@ h1, h2, h3 {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(201, 169, 110, 0.2);
   display: flex;
   justify-content: center;
@@ -520,86 +529,75 @@ h1, h2, h3 {
   50% { opacity: 1; }
 }
 
-/* ──────────────── Gold Ripple / Water Drop Effects ──────────────── */
-.ripple-circle {
+/* ──────────────── Envelope Opening Animation ──────────────── */
+.envelope-outer {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 1.5px solid var(--gold-primary);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 90;
-  animation: rippleEffect 1.2s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
-}
-
-@keyframes rippleEffect {
-  0% {
-    width: 60px;
-    height: 60px;
-    opacity: 0.8;
-    border-color: var(--gold-primary);
-  }
-  50% {
-    border-color: var(--rose-accent);
-  }
-  100% {
-    width: 500px;
-    height: 500px;
-    opacity: 0;
-    border-color: var(--rose-deep);
-  }
-}
-
-/* ──────────────── Dissolve / Cover Screen ──────────────── */
-.dissolve-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0; width: 100%; height: 100%;
   z-index: 200;
   background: linear-gradient(180deg, #fdf8f0 0%, #fef5f0 50%, #faf3e6 100%);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  pointer-events: auto;
-  opacity: 1;
-  transform: scale(1);
-  transition: opacity 1.4s cubic-bezier(0.25, 1, 0.5, 1), transform 1.4s cubic-bezier(0.25, 1, 0.5, 1);
-  box-sizing: border-box;
-  padding: 2rem;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  padding: 2rem; box-sizing: border-box;
   overflow: hidden;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.6, 1) 0.55s;
+}
+.envelope-outer.slide-out {
+  transform: translateY(-108%);
 }
 
-/* Floral frame background on dissolve cover */
-.dissolve-wrapper::before {
-  content: '';
-  position: absolute;
-  inset: 0;
+/* Floral background */
+.dissolve-bg-pattern {
+  position: absolute; inset: 0;
   background-image: url('/wedding_floral_frame.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.35;
-  pointer-events: none;
-  z-index: 0;
+  background-size: cover; background-position: center;
+  opacity: 0.35; pointer-events: none; z-index: 0;
 }
 
-.dissolve-wrapper::after {
-  content: '';
-  position: absolute;
-  inset: 1.5rem;
+/* Dashed inner border */
+.dissolve-border {
+  position: absolute; inset: 1.5rem;
   border: 1px dashed rgba(201, 169, 110, 0.15);
-  pointer-events: none;
-  z-index: 1;
+  pointer-events: none; z-index: 1;
 }
 
-.dissolve-wrapper.fade-out {
-  opacity: 0;
-  transform: scale(1.08);
+/* Triangular envelope flap — compresses upward on open */
+.envelope-flap {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 44%;
+  background: linear-gradient(170deg, #fdf2e8 0%, #fbe6d0 55%, #f5d8bc 100%);
+  clip-path: polygon(0 0, 100% 0, 50% 82%);
+  z-index: 8;
+  transition: clip-path 0.45s cubic-bezier(0.4, 0, 0.6, 1),
+              background 0.45s ease;
+}
+.envelope-flap::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.28) 0%, transparent 55%);
   pointer-events: none;
+}
+.envelope-flap.flap-open {
+  clip-path: polygon(0 0, 100% 0, 50% 4%);
+  background: linear-gradient(170deg, #e8d0b8 0%, #dfc4a4 55%, #d4b490 100%);
+}
+
+/* Envelope bottom-V and diagonal side-fold lines */
+.envelope-folds {
+  position: absolute; inset: 0; pointer-events: none; z-index: 2;
+}
+.envelope-folds::before {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 40%;
+  clip-path: polygon(0 100%, 50% 18%, 100% 100%);
+  background: rgba(201, 169, 110, 0.05);
+}
+.envelope-folds::after {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(135deg, rgba(201, 169, 110, 0.05) 0%, transparent 45%),
+    linear-gradient(225deg, rgba(201, 169, 110, 0.05) 0%, transparent 45%);
 }
 
 /* Wax Seal / Center Open Button */
@@ -699,8 +697,9 @@ h1, h2, h3 {
   padding: 0.5rem 1rem;
   border-radius: 999px;
   border: 1px solid rgba(201, 169, 110, 0.2);
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   transition: all 0.3s ease;
   font-family: var(--font-montserrat);
   font-size: 0.7rem;
@@ -783,3 +782,79 @@ h1, h2, h3 {
   0%, 100% { opacity: 0.5; transform: scale(1); }
   50% { opacity: 0.8; transform: scale(1.02); }
 }
+
+/* ──────────────── Cinematic Couple Intro Overlay ──────────────── */
+.intro-overlay {
+  position: absolute; inset: 0; z-index: 150;
+  background: #ede8f5;          /* soft lavender fallback while video loads */
+  overflow: hidden;
+  display: flex; align-items: flex-end; justify-content: center;
+  padding-bottom: 2.5rem;
+}
+
+/* Full-screen cinematic video — slight scale removes any baked-in black borders */
+.intro-video-bg {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+  transform: scale(1.04);       /* eliminates thin black edge artifacts */
+  z-index: 0;
+}
+
+/* Soft lavender-blush fade at bottom — matches the video's own floral palette */
+.intro-scrim {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 48%,
+    rgba(226, 210, 248, 0.55) 68%,
+    rgba(215, 195, 240, 0.88) 85%,
+    rgba(205, 182, 235, 0.97) 100%
+  );
+}
+
+/* Text block anchored to bottom */
+.intro-text-wrap {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 0.35rem;
+  text-align: center; padding: 0 1.5rem;
+}
+
+.intro-names {
+  font-family: var(--font-script);
+  font-size: 2.25rem; color: #2d1050;   /* deep purple */
+  letter-spacing: 0.04em; line-height: 1;
+  text-shadow: 0 1px 8px rgba(255,255,255,0.4);
+}
+
+.intro-divider {
+  width: 140px; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(120, 60, 180, 0.5), transparent);
+  transform-origin: center;
+}
+
+.intro-tagline-sub {
+  font-family: var(--font-script);
+  font-size: 1rem; color: #4a2080;      /* medium purple */
+  line-height: 1.3; margin: 0;
+}
+.intro-tagline-main {
+  font-family: var(--font-cinzel);
+  font-size: 0.52rem; letter-spacing: 0.2em;
+  color: #3a1870;                        /* dark purple */
+  text-transform: uppercase; margin: 0.15rem 0 0;
+  opacity: 0.8;
+}
+
+.intro-skip {
+  position: absolute; bottom: 1.25rem; right: 1.75rem;
+  font-family: var(--font-montserrat);
+  font-size: 0.6rem; letter-spacing: 0.12em;
+  color: rgba(60, 20, 100, 0.45); text-transform: uppercase;
+  background: none; border: none; cursor: pointer;
+  transition: color 0.25s; z-index: 10;
+}
+.intro-skip:active { color: rgba(60, 20, 100, 0.9); }
+
