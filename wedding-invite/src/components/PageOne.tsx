@@ -43,7 +43,7 @@ export const PageOne: React.FC = () => {
       >
         <motion.p
           className="text-[10px] tracking-[0.2em] font-semibold mb-1 uppercase"
-          style={{ fontFamily: "var(--font-dancing)", color: "var(--text-warm)", fontSize: "0.85rem" }}
+          style={{ fontFamily: "var(--font-dancing)", color: "#000000", fontSize: "0.85rem" }}
           variants={fadeUp}
           custom={0}
         >
@@ -52,7 +52,7 @@ export const PageOne: React.FC = () => {
 
         <motion.p
           className="text-[9px] tracking-[0.3em] font-light mb-1 uppercase"
-          style={{ color: "var(--rose-deep)", fontFamily: "var(--font-dancing)", fontSize: "0.7rem" }}
+          style={{ color: "#5C4033", fontFamily: "var(--font-dancing)", fontSize: "0.7rem" }}
           variants={fadeUp}
           custom={1}
         >
@@ -72,7 +72,7 @@ export const PageOne: React.FC = () => {
 
         <motion.p
           className="text-[9px] tracking-[0.15em] font-medium mb-3 uppercase py-1.5 max-w-[280px] mx-auto"
-          style={{ color: "var(--text-muted)", fontFamily: "var(--font-montserrat)", fontSize: "0.65rem" }}
+          style={{ color: "#000000", fontFamily: "var(--font-montserrat)", fontSize: "0.65rem" }}
           variants={fadeUp}
           custom={3}
         >
@@ -80,8 +80,8 @@ export const PageOne: React.FC = () => {
         </motion.p>
 
         <motion.p
-          className="text-[8px] tracking-[0.2em] font-light uppercase"
-          style={{ color: "var(--rose-accent)", fontFamily: "var(--font-montserrat)" }}
+          className="text-[9px] tracking-[0.2em] font-light uppercase"
+          style={{ color: "#5C4033", fontFamily: "var(--font-montserrat)" }}
           variants={fadeUp}
           custom={4}
         >
@@ -117,9 +117,8 @@ export const PageOne: React.FC = () => {
           style={{
             color: "var(--gold-primary)",
             fontFamily: "var(--font-script)",
-            fontSize: "3.2rem",
-            whiteSpace: "nowrap",
-            display: "inline-block",
+            fontSize: "clamp(2rem, 8vw, 2.8rem)",
+            display: "block",
             letterSpacing: "0.02em"
           }}
           delay={0.5}
@@ -146,9 +145,8 @@ export const PageOne: React.FC = () => {
           style={{
             color: "var(--gold-primary)",
             fontFamily: "var(--font-script)",
-            fontSize: "3.2rem",
-            whiteSpace: "nowrap",
-            display: "inline-block",
+            fontSize: "clamp(2rem, 8vw, 2.8rem)",
+            display: "block",
             letterSpacing: "0.02em"
           }}
           delay={1.0}

@@ -13,7 +13,7 @@ export const WeddingLogo: React.FC<WeddingLogoProps> = ({
     <img
       src="/photo_2026-05-29_23-50-58-removebg-preview.png"
       alt="N & S Monogram"
-      className={className}
+      className={`glow-logo ${className}`}
       style={style}
     />
   );

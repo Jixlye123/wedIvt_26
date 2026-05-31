@@ -1,0 +1,18 @@
+{
+  "name": "Nipuni & Samith Wedding Invitation",
+  "short_name": "N & S Wedding Invitation",
+  "description": "Wedding Invitation – June 26, 2026",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fdf8f0",
+  "theme_color": "#c9a96e",
+  "icons": [
+    {
+      "src": "/photo_2026-05-29_23-50-58-removebg-preview.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

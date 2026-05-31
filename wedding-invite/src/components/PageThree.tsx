@@ -70,7 +70,6 @@ const timelineItemVariant = {
 
 export const PageThree: React.FC = () => {
   const agenda: AgendaItem[] = [
-    { time: "08:49 AM", title: "Marriage Registration" },
     { time: "09:30 AM", title: "Poruwa Ceremony" },
     { time: "10:30 AM", title: "Reception" },
     { time: "12:00 PM", title: "Buffet Opens" },
@@ -153,7 +152,7 @@ export const PageThree: React.FC = () => {
         <div className="flex flex-col gap-2.5 justify-center items-center">
           {[
             { name: "DILTHARA", phone: "0761526684" },
-            { name: "LAKSHAN", phone: "0761527852" },
+            { name: "LAKSHAN", phone: "0716527852" },
           ].map((contact, idx) => (
             <motion.a
               key={contact.name}

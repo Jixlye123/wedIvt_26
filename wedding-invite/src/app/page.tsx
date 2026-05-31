@@ -43,8 +43,8 @@ export default function Home() {
     setTimeout(() => {
       setIsOverlayMounted(false);
     }, 1500);
-    // Show cinematic intro after envelope has fully slid away
-    setTimeout(() => setShowIntro(true), 1200);
+    // Show cinematic intro immediately so it covers PageOne before it fades in (PageOne reveals at ~700ms via CSS transition-delay)
+    setShowIntro(true);
   };
 
   const toggleMusic = (e: React.MouseEvent) => {
