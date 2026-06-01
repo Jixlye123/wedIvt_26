@@ -153,12 +153,21 @@ export const PageTwo: React.FC = () => {
           >
             Grand Silver Ray – Rathnapura
           </p>
-          <p
+          <motion.p
             className="text-[9px] uppercase tracking-widest mt-3 border-t pt-2 flex items-center justify-center gap-1"
-            style={{ color: "var(--text-muted)", borderColor: "rgba(201,169,110,0.1)" }}
+            style={{ color: "#8b6914", borderColor: "rgba(19, 16, 11, 0.1)" }}
+            animate={{ opacity: [0.7, 1, 0.7] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           >
-            <span>Tap to open Google Maps</span>
-          </p>
+            <span style={{
+              fontWeight: 700,
+              letterSpacing: "0.18em",
+              color: "#000000",
+              textDecoration: "underline",
+              textDecorationColor: "rgba(139,105,20,0.4)",
+              textUnderlineOffset: "3px",
+            }}>↗ Tap to open Google Maps</span>
+          </motion.p>
         </motion.div>
       </motion.div>
 

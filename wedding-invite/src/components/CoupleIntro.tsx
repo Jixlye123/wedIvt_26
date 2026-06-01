@@ -39,6 +39,7 @@ export const CoupleIntro: React.FC<CoupleIntroProps> = ({ onDismiss }) => {
         autoPlay
         playsInline
         muted
+        preload="auto"
       />
 
       {/* Gradient scrim — keeps text readable against any video */}
@@ -62,16 +63,7 @@ export const CoupleIntro: React.FC<CoupleIntroProps> = ({ onDismiss }) => {
         <p className="intro-tagline-main">invite you to celebrate their wedding</p>
       </motion.div>
 
-      {/* Skip button */}
-      <motion.button
-        className="intro-skip"
-        onClick={dismiss}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.8 }}
-      >
-        Skip ›
-      </motion.button>
+
     </motion.div>
   );
 };

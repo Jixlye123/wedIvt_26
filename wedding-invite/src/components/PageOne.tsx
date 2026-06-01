@@ -80,12 +80,20 @@ export const PageOne: React.FC = () => {
         </motion.p>
 
         <motion.p
-          className="text-[9px] tracking-[0.2em] font-light uppercase"
-          style={{ color: "#5C4033", fontFamily: "var(--font-montserrat)" }}
+          style={{
+            fontFamily: "var(--font-dancing)",
+            fontSize: "1rem",
+            fontWeight: 700,
+            color: "var(--rose-deep)",
+            letterSpacing: "0.04em",
+            borderBottom: "1px solid rgba(183,110,121,0.35)",
+            paddingBottom: "2px",
+            display: "inline-block",
+          }}
           variants={fadeUp}
           custom={4}
         >
-          To grace the marriage of their daughter & son
+          To grace the marriage of their daughter &amp; son
         </motion.p>
       </motion.div>
 
@@ -101,7 +109,7 @@ export const PageOne: React.FC = () => {
           <WeddingLogo />
         </div>
         <motion.p
-          className="text-[11px] tracking-[0.4em] font-bold mt-2 gold-gradient"
+          className="date-stamp"
           style={{ fontFamily: "var(--font-cinzel)" }}
         >
           26 · 06 · 2026
