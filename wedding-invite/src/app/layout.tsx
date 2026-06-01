@@ -28,7 +28,7 @@ const dancingScript = Dancing_Script({
   display: "swap",
 });
 
-const BASE_URL = "https://wed-ivt-26-wvmr.vercel.app/"; // update to your actual domain
+const BASE_URL = "https://wed-ivt-26-wvmr.vercel.app"; // update to your actual domain
 
 export const metadata: Metadata = {
   title: "Nipuni & Samith's Wedding Invitation",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     siteName: "Nipuni & Samith Wedding",
     images: [
       {
-        url: "https://wed-ivt-26-wvmr.vercel.app/og-image.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Nipuni & Samith Wedding",
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     title: "Nipuni & Samith's Wedding Invitation 💍",
     description:
       "Join us as we celebrate the marriage of Nipuni Dilthara & Samith Lakshan – June 26, 2026",
-    images: ["https://wed-ivt-26-wvmr.vercel.app/og-image.png"],
+    images: ["/og-image.png"],
   },
   manifest: "/manifest.json",
   themeColor: "#c9a96e",
