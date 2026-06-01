@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     siteName: "Nipuni & Samith Wedding",
     images: [
       {
-        url: "/og-image.png",
+        url: "https://wed-ivt-26-wvmr.vercel.app/og-image.png",
         width: 1200,
         height: 630,
         alt: "Nipuni & Samith Wedding",
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     title: "Nipuni & Samith's Wedding Invitation 💍",
     description:
       "Join us as we celebrate the marriage of Nipuni Dilthara & Samith Lakshan – June 26, 2026",
-    images: ["/og-image.png"],
+    images: ["https://wed-ivt-26-wvmr.vercel.app/og-image.png"],
   },
   manifest: "/manifest.json",
   themeColor: "#c9a96e",
