@@ -85,7 +85,7 @@ export const PageThree: React.FC = () => {
 
       {/* Page Title */}
       <motion.div
-        className="relative w-full text-center mt-6 z-10"
+        className="relative w-full text-center mt-4 z-10"
         initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
@@ -102,7 +102,7 @@ export const PageThree: React.FC = () => {
 
       {/* Timeline Section */}
       <motion.div
-        className="relative w-full max-w-[290px] mx-auto z-10 my-2"
+        className="relative w-full max-w-[280px] mx-auto z-10 my-1"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -111,19 +111,12 @@ export const PageThree: React.FC = () => {
           {agenda.map((item, idx) => (
             <motion.div
               key={idx}
-              className="timeline-item"
+              className="timeline-item mb-3"
               variants={timelineItemVariant}
               custom={idx}
             >
-              <motion.div
-                className="timeline-dot"
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                transition={{ duration: 0.4, delay: idx * 0.12 + 0.2, type: "spring", stiffness: 200 }}
-                viewport={{ once: true }}
-              />
-              <div className="timeline-time">{item.time}</div>
-              <div className="timeline-title" style={{ color: "var(--text-warm)" }}>{item.title}</div>
+              <div className="timeline-time text-[0.7rem]">{item.time}</div>
+              <div className="timeline-title text-[0.8rem]" style={{ color: "var(--text-warm)" }}>{item.title}</div>
             </motion.div>
           ))}
         </div>
@@ -131,7 +124,7 @@ export const PageThree: React.FC = () => {
 
       {/* RSVP Section */}
       <motion.div
-        className="relative w-full text-center mb-4 z-10 px-4"
+        className="relative w-full text-center mb-2 z-10 px-4"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -139,7 +132,7 @@ export const PageThree: React.FC = () => {
         <GoldDivider delay={0.3} />
 
         <motion.p
-          className="text-[10px] tracking-[0.25em] font-bold uppercase mb-3 mt-3 gold-gradient"
+          className="text-[9px] tracking-[0.2em] font-bold uppercase mb-2 mt-2 gold-gradient"
           style={{ fontFamily: "var(--font-cinzel)" }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -149,7 +142,7 @@ export const PageThree: React.FC = () => {
           RSVP
         </motion.p>
 
-        <div className="flex flex-col gap-2.5 justify-center items-center">
+        <div className="flex flex-col gap-2 justify-center items-center">
           {[
             { name: "DILTHARA", phone: "0761526684" },
             { name: "LAKSHAN", phone: "0716527852" },
@@ -157,7 +150,7 @@ export const PageThree: React.FC = () => {
             <motion.a
               key={contact.name}
               href={`tel:${contact.phone}`}
-              className="rsvp-button"
+              className="rsvp-button py-1.5 px-3"
               initial={{ opacity: 0, scale: 0.8, y: 10 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               transition={{
@@ -170,15 +163,15 @@ export const PageThree: React.FC = () => {
               viewport={{ once: true }}
               whileTap={{ scale: 0.95 }}
             >
-              <Phone size={12} style={{ color: "var(--gold-primary)" }} />
-              <span>{contact.name} – {contact.phone}</span>
+              <Phone size={10} style={{ color: "var(--gold-primary)" }} />
+              <span className="text-[10px]">{contact.name} – {contact.phone}</span>
             </motion.a>
           ))}
         </div>
 
         {/* "With Love" closing */}
         <motion.p
-          className="with-love mt-4"
+          className="with-love mt-3 text-lg"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 0.7 }}
           transition={{ duration: 1, delay: 0.8 }}

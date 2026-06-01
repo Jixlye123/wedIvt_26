@@ -90,13 +90,13 @@ export const PageTwo: React.FC = () => {
 
       {/* Date and Time Info */}
       <motion.div
-        className="relative w-full text-center z-10 px-4 my-2"
+        className="relative w-full text-center z-10 px-4 my-1"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
       >
         <motion.div
-          className="flex flex-col items-center gap-2 mb-6"
+          className="flex flex-col items-center gap-1.5 mb-4"
           variants={slideUp}
           custom={1}
         >
@@ -104,19 +104,19 @@ export const PageTwo: React.FC = () => {
             animate={{ scale: [1, 1.15, 1] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           >
-            <Calendar className="text-[var(--gold-primary)]" size={24} />
+            <Calendar className="text-[var(--gold-primary)]" size={20} />
           </motion.div>
           <h3
-            className="font-bold tracking-wide text-lg mt-1"
-            style={{ fontFamily: "var(--font-cinzel)", color: "var(--text-dark)", fontSize: "1rem" }}
+            className="font-bold tracking-wide mt-1"
+            style={{ fontFamily: "var(--font-cinzel)", color: "var(--text-dark)", fontSize: "clamp(0.9rem, 4vw, 1.1rem)" }}
           >
             Friday, June 26, 2026
           </h3>
           <div
-            className="flex items-center gap-1.5 text-xs font-medium"
+            className="flex items-center gap-1.5 text-[10px] font-medium"
             style={{ color: "var(--text-muted)", fontFamily: "var(--font-montserrat)" }}
           >
-            <Clock size={14} style={{ color: "var(--rose-accent)" }} />
+            <Clock size={12} style={{ color: "var(--rose-accent)" }} />
             <span>9:00 AM – 4:00 PM</span>
           </div>
         </motion.div>
@@ -124,13 +124,13 @@ export const PageTwo: React.FC = () => {
         {/* Location / Clickable Venue — Glassmorphism Card */}
         <motion.div
           onClick={handleVenueClick}
-          className="relative venue-link p-5 mx-auto max-w-[320px] rounded-2xl cursor-pointer z-10"
+          className="relative venue-link p-3 sm:p-5 mx-auto max-w-[300px] rounded-2xl cursor-pointer z-10"
           variants={springIn}
           whileTap={{ scale: 0.97 }}
         >
-          <div className="flex justify-center mb-2.5">
+          <div className="flex justify-center mb-1.5">
             <motion.div
-              className="w-11 h-11 rounded-full flex items-center justify-center"
+              className="w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center"
               style={{
                 background: "linear-gradient(135deg, rgba(201,169,110,0.1) 0%, rgba(212,160,160,0.1) 100%)",
                 color: "var(--gold-primary)",
@@ -138,57 +138,57 @@ export const PageTwo: React.FC = () => {
               animate={{ boxShadow: ["0 0 0px rgba(201,169,110,0)", "0 0 15px rgba(201,169,110,0.3)", "0 0 0px rgba(201,169,110,0)"] }}
               transition={{ duration: 2.5, repeat: Infinity }}
             >
-              <MapPin size={20} />
+              <MapPin size={18} />
             </motion.div>
           </div>
           <h4
-            className="font-bold text-sm tracking-wide mb-1 uppercase"
+            className="font-bold text-xs sm:text-sm tracking-wide mb-1 uppercase"
             style={{ fontFamily: "var(--font-cinzel)", color: "var(--text-dark)" }}
           >
             At the Main Ballroom
           </h4>
           <p
-            className="font-medium text-xs tracking-wider mb-2"
-            style={{ fontFamily: "var(--font-dancing)", color: "var(--gold-primary)", fontSize: "0.9rem" }}
+            className="font-medium tracking-wider mb-1"
+            style={{ fontFamily: "var(--font-dancing)", color: "var(--gold-primary)", fontSize: "clamp(0.75rem, 3.5vw, 0.9rem)" }}
           >
             Grand Silver Ray – Rathnapura
           </p>
           <motion.p
-            className="text-[9px] uppercase tracking-widest mt-3 border-t pt-2 flex items-center justify-center gap-1"
+            className="text-[8px] sm:text-[9px] uppercase tracking-widest mt-2 border-t pt-2 flex items-center justify-center gap-1"
             style={{ color: "#8b6914", borderColor: "rgba(19, 16, 11, 0.1)" }}
             animate={{ opacity: [0.7, 1, 0.7] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           >
             <span style={{
               fontWeight: 700,
-              letterSpacing: "0.18em",
+              letterSpacing: "0.15em",
               color: "#000000",
               textDecoration: "underline",
               textDecorationColor: "rgba(139,105,20,0.4)",
-              textUnderlineOffset: "3px",
-            }}>↗ Tap to open Google Maps</span>
+              textUnderlineOffset: "2px",
+            }}>↗ Tap for Google Maps</span>
           </motion.p>
         </motion.div>
       </motion.div>
 
       {/* Countdown Timer */}
       <motion.div
-        className="relative w-full text-center mb-10 z-10"
+        className="relative w-full text-center mb-6 z-10"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
       >
         <motion.p
-          className="text-[9px] tracking-[0.2em] uppercase font-semibold mb-2"
+          className="text-[8px] tracking-[0.2em] uppercase font-semibold mb-1.5"
           style={{ color: "var(--rose-deep)", fontFamily: "var(--font-montserrat)" }}
           variants={slideUp}
           custom={3}
         >
-          {timeLeft.isOver ? "The Wedding Has Begun ✨" : "Counting Down To The Big Day"}
+          {timeLeft.isOver ? "The Wedding Has Begun ✨" : "Counting Down"}
         </motion.p>
 
         {!timeLeft.isOver && (
-          <div className="countdown-container">
+          <div className="countdown-container gap-2 sm:gap-3">
             {[
               { value: timeLeft.days, label: "Days" },
               { value: timeLeft.hours, label: "Hours" },
@@ -197,14 +197,14 @@ export const PageTwo: React.FC = () => {
             ].map((item, idx) => (
               <motion.div
                 key={item.label}
-                className="countdown-box"
+                className="countdown-box min-w-[55px] sm:min-w-[68px] p-1.5 sm:p-2.5"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 + idx * 0.1 }}
                 viewport={{ once: true }}
               >
                 <motion.div
-                  className="countdown-value"
+                  className="countdown-value text-lg sm:text-xl"
                   key={item.value}
                   initial={{ opacity: 0.7, y: -3 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -212,7 +212,7 @@ export const PageTwo: React.FC = () => {
                 >
                   {String(item.value).padStart(2, "0")}
                 </motion.div>
-                <div className="countdown-label">{item.label}</div>
+                <div className="countdown-label text-[7px]">{item.label}</div>
               </motion.div>
             ))}
           </div>

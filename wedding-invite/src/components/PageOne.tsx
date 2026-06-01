@@ -36,14 +36,14 @@ export const PageOne: React.FC = () => {
 
       {/* Parents' Request */}
       <motion.div
-        className="relative w-full text-center mt-6 z-10 px-4"
+        className="relative w-full text-center mt-2 z-10 px-4"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
       >
         <motion.p
           className="text-[10px] tracking-[0.2em] font-semibold mb-1 uppercase"
-          style={{ fontFamily: "var(--font-dancing)", color: "#000000", fontSize: "0.85rem" }}
+          style={{ fontFamily: "var(--font-dancing)", color: "#000000", fontSize: "clamp(0.7rem, 3vw, 0.85rem)" }}
           variants={fadeUp}
           custom={0}
         >
@@ -52,7 +52,7 @@ export const PageOne: React.FC = () => {
 
         <motion.p
           className="text-[9px] tracking-[0.3em] font-light mb-1 uppercase"
-          style={{ color: "#5C4033", fontFamily: "var(--font-dancing)", fontSize: "0.7rem" }}
+          style={{ color: "#5C4033", fontFamily: "var(--font-dancing)", fontSize: "clamp(0.6rem, 2.5vw, 0.7rem)" }}
           variants={fadeUp}
           custom={1}
         >
@@ -60,8 +60,8 @@ export const PageOne: React.FC = () => {
         </motion.p>
 
         <motion.p
-          className="text-[10px] tracking-[0.2em] font-semibold mb-3 uppercase"
-          style={{ fontFamily: "var(--font-dancing)", color: "var(--text-warm)", fontSize: "0.85rem" }}
+          className="text-[10px] tracking-[0.2em] font-semibold mb-2 uppercase"
+          style={{ fontFamily: "var(--font-dancing)", color: "var(--text-warm)", fontSize: "clamp(0.7rem, 3vw, 0.85rem)" }}
           variants={fadeUp}
           custom={2}
         >
@@ -71,8 +71,8 @@ export const PageOne: React.FC = () => {
         <GoldDivider delay={0.4} />
 
         <motion.p
-          className="text-[9px] tracking-[0.15em] font-medium mb-3 uppercase py-1.5 max-w-[280px] mx-auto"
-          style={{ color: "#000000", fontFamily: "var(--font-montserrat)", fontSize: "0.65rem" }}
+          className="text-[9px] tracking-[0.15em] font-medium mb-2 uppercase py-1 max-w-[280px] mx-auto"
+          style={{ color: "#000000", fontFamily: "var(--font-montserrat)", fontSize: "clamp(0.55rem, 2.2vw, 0.65rem)" }}
           variants={fadeUp}
           custom={3}
         >
@@ -82,7 +82,7 @@ export const PageOne: React.FC = () => {
         <motion.p
           style={{
             fontFamily: "var(--font-dancing)",
-            fontSize: "1rem",
+            fontSize: "clamp(0.85rem, 4vw, 1rem)",
             fontWeight: 700,
             color: "var(--rose-deep)",
             letterSpacing: "0.04em",
@@ -99,33 +99,33 @@ export const PageOne: React.FC = () => {
 
       {/* Monogram Section */}
       <motion.div
-        className="relative my-2 z-10 flex flex-col items-center"
+        className="relative my-1.5 z-10 flex flex-col items-center"
         variants={scaleBlur}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <div className="w-28 h-28 relative flex items-center justify-center">
+        <div className="w-20 h-20 sm:w-24 sm:h-24 relative flex items-center justify-center">
           <WeddingLogo />
         </div>
         <motion.p
           className="date-stamp"
-          style={{ fontFamily: "var(--font-cinzel)" }}
+          style={{ fontFamily: "var(--font-cinzel)", marginTop: "0.25rem", fontSize: "0.6rem" }}
         >
           26 · 06 · 26
         </motion.p>
       </motion.div>
 
       {/* Bride & Groom Names */}
-      <div className="relative w-full text-center mb-8 z-10 px-4">
+      <div className="relative w-full text-center mb-4 z-10 px-4">
         <AnimatedText
           text="Nipuni Dilthara"
           as="h2"
-          className="font-script leading-none mb-2"
+          className="font-script leading-none mb-1"
           style={{
             color: "var(--gold-primary)",
             fontFamily: "var(--font-script)",
-            fontSize: "clamp(2rem, 8vw, 2.8rem)",
+            fontSize: "clamp(2rem, 10vw, 2.75rem)",
             display: "block",
             letterSpacing: "0.02em"
           }}
@@ -133,10 +133,10 @@ export const PageOne: React.FC = () => {
           staggerDelay={0.03}
         />
         <motion.p
-          className="font-script my-3 rose-gold-gradient"
+          className="font-script my-1 rose-gold-gradient"
           style={{
             fontFamily: "var(--font-script)",
-            fontSize: "2.4rem",
+            fontSize: "clamp(1.8rem, 8vw, 2.2rem)",
             lineHeight: "1"
           }}
           initial={{ opacity: 0, scale: 0.5 }}
@@ -149,11 +149,11 @@ export const PageOne: React.FC = () => {
         <AnimatedText
           text="Samith Lakshan"
           as="h2"
-          className="font-script leading-none mt-2"
+          className="font-script leading-none mt-1"
           style={{
             color: "var(--gold-primary)",
             fontFamily: "var(--font-script)",
-            fontSize: "clamp(2rem, 8vw, 2.8rem)",
+            fontSize: "clamp(2rem, 10vw, 2.75rem)",
             display: "block",
             letterSpacing: "0.02em"
           }}
