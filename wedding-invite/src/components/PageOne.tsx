@@ -112,7 +112,7 @@ export const PageOne: React.FC = () => {
           className="date-stamp"
           style={{ fontFamily: "var(--font-cinzel)", marginTop: "0.25rem", fontSize: "0.6rem" }}
         >
-          26 · 06 · 26
+          26 · 6 · 26
         </motion.p>
       </motion.div>
 
