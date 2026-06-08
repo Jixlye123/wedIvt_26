@@ -60,7 +60,7 @@ export const DissolveOverlay: React.FC<DissolveOverlayProps> = ({ onOpen }) => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          Nipuni & Samith
+          Dilthara & Lakshan
         </motion.p>
       </motion.div>
 

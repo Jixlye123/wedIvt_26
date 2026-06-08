@@ -31,22 +31,22 @@ const dancingScript = Dancing_Script({
 const BASE_URL = "https://wed-ivt-26-wvmr.vercel.app"; // update to your actual domain
 
 export const metadata: Metadata = {
-  title: "Nipuni & Lakshan's Wedding Invitation",
+  title: "Dilthara & Lakshan's Wedding Invitation",
   description:
     "You are cordially invited to celebrate the wedding of Nipuni Dilthara & Samith Lakshan on Friday, June 26, 2026 at Grand Silver Ray, Rathnapura.",
   metadataBase: new URL(BASE_URL),
   openGraph: {
-    title: "Nipuni & Lakshan's Wedding Invitation 💍",
+    title: "Dilthara & Lakshan's Wedding Invitation 💍",
     description:
       "Join us as we celebrate the marriage of Nipuni Dilthara & Samith Lakshan – June 26, 2026 · Grand Silver Ray, Rathnapura",
     url: BASE_URL,
-    siteName: "Nipuni & Lakshan Wedding",
+    siteName: "Dilthara & Lakshan Wedding",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Nipuni & Lakshan Wedding",
+        alt: "Dilthara & Lakshan Wedding",
       },
     ],
     type: "website",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nipuni & Lakshan's Wedding Invitation 💍",
+    title: "Dilthara & Lakshan's Wedding Invitation 💍",
     description:
       "Join us as we celebrate the marriage of Nipuni Dilthara & Samith Lakshan – June 26, 2026",
     images: ["/og-image.png"],

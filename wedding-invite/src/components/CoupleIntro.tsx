@@ -52,7 +52,7 @@ export const CoupleIntro: React.FC<CoupleIntroProps> = ({ onDismiss }) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.5 }}
       >
-        <p className="intro-names">Nipuni &amp; Samith</p>
+        <p className="intro-names">Dilthara &amp; Lakshan</p>
         <motion.div
           className="intro-divider"
           initial={{ scaleX: 0 }}
